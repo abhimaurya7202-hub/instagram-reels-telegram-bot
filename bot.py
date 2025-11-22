@@ -4,8 +4,22 @@ import telebot
 from instaloader import Instaloader, Profile
 import time
 
+# Load environment variables from .env file
+if os.path.exists('.env'):
+    with open('.env', 'r') as f:
+        for line in f:
+            if '=' in line:
+                key, value = line.strip().split('=', 1)
+                os.environ[key] = value
+
 # Configuration
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+
+if not TELEGRAM_BOT_TOKEN:
+    print("ERROR: TELEGRAM_BOT_TOKEN not found!")
+    print("Please run setup.bat (Windows) or ./setup.sh (Linux/Mac) first")
+    exit(1)
+
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
 # Initialize Instaloader
@@ -104,4 +118,5 @@ def handle_username(message):
 
 if __name__ == '__main__':
     print("🤖 Bot is running...")
+    print("Press Ctrl+C to stop")
     bot.infinity_polling()
