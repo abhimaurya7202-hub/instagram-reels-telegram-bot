@@ -9,88 +9,159 @@ A powerful Telegram bot that downloads Instagram reels instantly. Just send a us
 - 📊 Shows likes and comments count
 - 💬 Includes captions
 - 🤖 Easy to use - just send username
+- ⚡ **FULLY AUTOMATED SETUP** - No manual configuration needed!
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
+## 🚀 SUPER EASY SETUP (Just 3 Steps!)
 
-- Python 3.8+
-- Telegram Bot Token (from [@BotFather](https://t.me/botfather))
+### **Step 1: Install Python**
 
-### Installation
+**Windows:**
+1. Download Python from: https://www.python.org/downloads/
+2. Run installer
+3. ✅ **CHECK "Add Python to PATH"** (IMPORTANT!)
+4. Click "Install Now"
 
-1. **Clone the repository**
+**Mac:**
+```bash
+brew install python3
+```
+
+**Linux:**
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+---
+
+### **Step 2: Download This Bot**
+
+**Option A - Download ZIP (Easiest):**
+1. Click green "Code" button above
+2. Click "Download ZIP"
+3. Extract the ZIP file
+4. Open the extracted folder
+
+**Option B - Using Git:**
 ```bash
 git clone https://github.com/abhimaurya7202-hub/instagram-reels-telegram-bot.git
 cd instagram-reels-telegram-bot
 ```
 
-2. **Install dependencies**
+---
+
+### **Step 3: Run Setup Script**
+
+**Windows:**
+1. Double-click `setup.bat`
+2. Follow the instructions
+3. When asked for token, get it from @BotFather (see below)
+4. Paste token and press Enter
+5. Done! Now double-click `start_bot.bat` to run
+
+**Mac/Linux:**
 ```bash
-pip install -r requirements.txt
+chmod +x setup.sh
+./setup.sh
 ```
-
-3. **Set up environment variable**
+Follow instructions, then run:
 ```bash
-export TELEGRAM_BOT_TOKEN="your_bot_token_here"
+./start_bot.sh
 ```
 
-Or create a `.env` file:
-```
-TELEGRAM_BOT_TOKEN=your_bot_token_here
-```
+---
 
-4. **Run the bot**
-```bash
-python bot.py
-```
+## 🤖 How to Get Telegram Bot Token
 
-## 📱 Usage
+1. Open Telegram
+2. Search for **@BotFather**
+3. Send `/newbot`
+4. Choose a name for your bot (e.g., "My Reels Bot")
+5. Choose a username (must end with 'bot', e.g., "myreels_bot")
+6. **Copy the token** BotFather gives you
+7. Paste it when setup script asks
 
-1. Start the bot on Telegram
-2. Send `/start` to see instructions
-3. Send any Instagram username (without @)
-4. Wait for the bot to download and send reels!
+**Example token:** `1234567890:ABCdefGHIjklMNOpqrsTUVwxyz`
+
+---
+
+## 📱 Using Your Bot
+
+1. After running `start_bot.bat` (Windows) or `./start_bot.sh` (Mac/Linux)
+2. Open Telegram and find your bot
+3. Send `/start` to begin
+4. Send any Instagram username (without @)
+5. Wait for reels to download!
 
 **Example:**
 ```
 cristiano
 ```
 
-## 🔧 Configuration
+Bot will send you 5 latest reels with captions and stats!
 
-Edit `bot.py` to customize:
-- Number of reels to download (default: 5)
-- Rate limiting delays
-- Caption length
+---
 
-## 📦 Deployment
+## 🎯 What Each File Does
 
-### Deploy on Heroku
+- `setup.bat` / `setup.sh` - Automated setup (run once)
+- `start_bot.bat` / `start_bot.sh` - Start the bot
+- `bot.py` - Main bot code
+- `requirements.txt` - Required packages
+- `.env` - Your bot token (created by setup)
 
-1. Create a new Heroku app
-2. Add buildpack: `heroku/python`
-3. Set config var: `TELEGRAM_BOT_TOKEN`
-4. Deploy from GitHub
+---
 
-### Deploy on Railway
+## ❓ Troubleshooting
 
-1. Connect your GitHub repo
-2. Add environment variable: `TELEGRAM_BOT_TOKEN`
-3. Deploy automatically
+**"Python not found"**
+- Reinstall Python and check "Add to PATH"
+- Restart your computer
 
-### Deploy on VPS
-
+**"pip not found"**
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run with nohup
-nohup python bot.py &
-
-# Or use systemd service
-sudo systemctl start instagram-bot
+python -m ensurepip --upgrade
 ```
+
+**"Bot token invalid"**
+- Get a new token from @BotFather
+- Run setup script again
+
+**"No reels found"**
+- Account might be private
+- Account might not have reels
+- Try another username
+
+**Bot stops responding:**
+- Close and restart using `start_bot.bat` or `./start_bot.sh`
+
+---
+
+## 🌐 Deploy Online (24/7 Running)
+
+Want your bot to run 24/7 without your computer?
+
+### **Heroku (Free):**
+1. Create account at heroku.com
+2. Install Heroku CLI
+3. Run:
+```bash
+heroku login
+heroku create your-bot-name
+heroku config:set TELEGRAM_BOT_TOKEN=your_token
+git push heroku main
+```
+
+### **Railway (Easiest):**
+1. Go to railway.app
+2. Connect your GitHub
+3. Select this repository
+4. Add environment variable: `TELEGRAM_BOT_TOKEN`
+5. Deploy!
+
+---
 
 ## ⚠️ Important Notes
 
@@ -98,26 +169,37 @@ sudo systemctl start instagram-bot
 - Instagram may rate limit requests
 - Respect Instagram's Terms of Service
 - Use responsibly
+- Bot downloads 5 reels at a time (can be changed in bot.py)
+
+---
 
 ## 🛠️ Tech Stack
 
 - **Python 3.8+**
-- **pyTelegramBotAPI** - Telegram Bot API wrapper
-- **Instaloader** - Instagram scraping library
+- **pyTelegramBotAPI** - Telegram Bot API
+- **Instaloader** - Instagram scraping
 - **Requests** - HTTP library
+
+---
 
 ## 📝 License
 
-MIT License - feel free to use and modify!
+MIT License - Free to use and modify!
+
+---
 
 ## 🤝 Contributing
 
-Pull requests are welcome! For major changes, please open an issue first.
+Pull requests welcome! Open an issue for major changes.
+
+---
 
 ## 📧 Support
 
-For issues or questions, open a GitHub issue or contact [@abhimaurya7202](https://github.com/abhimaurya7202-hub)
+Issues? Open a GitHub issue or contact [@abhimaurya7202](https://github.com/abhimaurya7202-hub)
 
 ---
 
 **Made with ❤️ by Abhishek Mourya**
+
+**⭐ Star this repo if you find it useful!**
